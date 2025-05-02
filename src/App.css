@@ -1,0 +1,144 @@
+/* Base container styles */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Retro academic styling */
+.retro-link {
+  text-decoration: underline;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.retro-link:hover {
+  color: #ffb000;
+}
+
+.retro-paper {
+  position: relative;
+  background-color: rgba(26, 26, 26, 0.5);
+  border: 1px solid rgba(74, 246, 38, 0.2);
+  padding: 1.5rem;
+}
+
+.retro-paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(74, 246, 38, 0.5),
+    transparent
+  );
+}
+
+/* Retro academic elements */
+.citation {
+  font-family: monospace;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-left: 2px solid rgba(74, 246, 38, 0.5);
+  margin: 1rem 0;
+}
+
+/* Screen flicker effect */
+@keyframes flicker {
+  0% {
+    opacity: 0.98;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.98;
+  }
+  15% {
+    opacity: 0.97;
+  }
+  20% {
+    opacity: 0.99;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.99;
+  }
+  35% {
+    opacity: 0.98;
+  }
+  40% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.99;
+  }
+  50% {
+    opacity: 0.98;
+  }
+  55% {
+    opacity: 0.99;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.screen-flicker {
+  animation: flicker 5s infinite;
+}
+
+/* Academic publication styling */
+.publication-item {
+  border-left: 2px solid rgba(74, 246, 38, 0.3);
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.publication-title {
+  font-weight: bold;
+}
+
+/* Retro grid paper effect */
+.grid-paper {
+  background-image: linear-gradient(
+      rgba(74, 246, 38, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(74, 246, 38, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Academic badge */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border: 1px solid rgba(74, 246, 38, 0.3);
+  margin-right: 0.5rem;
+}
+
+/* Old CRT monitor effect */
+.crt::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+  background-size: 100% 2px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.1;
+}
