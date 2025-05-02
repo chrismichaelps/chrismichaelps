@@ -1,7 +1,5 @@
 # Personal Website
 
-...
-
 ## **:handshake: Contributing**
 
 - Fork it!
