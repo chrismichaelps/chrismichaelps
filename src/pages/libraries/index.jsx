@@ -19,7 +19,7 @@ const LibrariesPage = () => {
       id: 1,
       name: "VEffect",
       language: "TypeScript",
-      url: "https://github.com/chrismichaelperez/veffect",
+      url: "https://github.com/chrismichaelps/veffect",
       description: "VEffect Validation is a powerful TypeScript validation library built on the robust foundation of Effect, combining exceptional type safety, high performance, and developer experience. Taking inspiration from Effect's functional principles.",
       features: [
         "🔍 Type-Safe - Full TypeScript integration with inferred types",
@@ -40,7 +40,7 @@ const LibrariesPage = () => {
       id: 2,
       name: "QuantumMatcher",
       language: "TypeScript",
-      url: "https://github.com/chrismichaelperez/quantummatcher",
+      url: "https://github.com/chrismichaelps/quantummatcher",
       description: "QuantumMatcher library is a fuzzy matching algorithm that leverages bitwise operations to efficiently find approximate matches within a collection of items.",
       features: [
         "Fuzzy Matching: Efficiently finds approximate matches in a collection",
@@ -53,7 +53,7 @@ const LibrariesPage = () => {
       id: 3,
       name: "FASTA-to-FST",
       language: "C++",
-      url: "https://github.com/chrismichaelperez/fasta-to-fst",
+      url: "https://github.com/chrismichaelps/fasta-to-fst",
       description: "This project demonstrates how to convert FASTA files to Finite State Transducers (FSTs). It provides a simple workflow for building the project, converting a FASTA file to an FST, and visualizing the result.",
       features: [
         "FASTA file parsing",
