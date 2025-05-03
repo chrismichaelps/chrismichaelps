@@ -19,9 +19,9 @@ const PapersPage = () => {
   const papers = [
     {
       id: 1,
-      title: "FASTA to FST: Converting FASTA Files to Finite State Transducers",
+      title: "The Benefits of Converting FASTA to FST: A Computational Perspective",
       authors: "Chris M. Pérez",
-      year: "2025",
+      date: "February 16, 2025",
       path: "/paper-fasta-to-fst.pdf"
     }
   ];
@@ -46,7 +46,7 @@ const PapersPage = () => {
             >
               <h3 className="font-bold text-terminal-amber mb-2 break-words">{paper.title}</h3>
               <p className="text-gray-400 text-sm mb-2 break-words">{paper.authors}</p>
-              <p className="text-gray-500 text-xs mb-3 sm:mb-4 break-words">{paper.year}</p>
+              <p className="text-gray-500 text-xs mb-3 sm:mb-4 break-words">{paper.date}</p>
               <div className="flex justify-between items-center">
                 <span className="bg-terminal-green/20 text-terminal-green px-2 py-1 rounded text-xs">PDF</span>
               </div>
@@ -82,7 +82,7 @@ const PapersPage = () => {
               <span className="text-terminal-green">Authors:</span> {papers[selectedPaper].authors}
             </p>
             <p className="break-words">
-              <span className="text-terminal-green">Year:</span> {papers[selectedPaper].year}
+              <span className="text-terminal-green">Year:</span> {papers[selectedPaper].date}
             </p>
           </div>
         </div>
