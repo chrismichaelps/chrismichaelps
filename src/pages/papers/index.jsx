@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react';
+
 import { pulseElement, runTransitionAnimation } from '../../utils/setupAnimations';
+import PAPERS from '../../assets/json/papers.json';
 
 const PapersPage = () => {
   const [selectedPaper, setSelectedPaper] = useState(0);
@@ -16,16 +18,6 @@ const PapersPage = () => {
     pulseElement('.download-button');
   };
 
-  const papers = [
-    {
-      id: 1,
-      title: "The Benefits of Converting FASTA to FST: A Computational Perspective",
-      authors: "Chris M. Pérez",
-      date: "February 16, 2025",
-      path: "/paper-fasta-to-fst.pdf"
-    }
-  ];
-
   return (
     <div className="space-y-6 max-w-full overflow-x-hidden page-container" ref={rootRef}>
       <div className="terminal-heading mb-4 section-title">
@@ -38,7 +30,7 @@ const PapersPage = () => {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 max-h-[300px] overflow-y-auto pr-2">
-          {papers.map((paper, index) => (
+          {PAPERS.map((paper, index) => (
             <div 
               key={paper.id} 
               className={`bg-terminal-bg p-3 sm:p-4 rounded-md hover:border-terminal-green/50 border ${selectedPaper === index ? 'border-terminal-green' : 'border-terminal-green/20'} transition-colors cursor-pointer content-card list-item`}
@@ -57,10 +49,10 @@ const PapersPage = () => {
         <div className="bg-terminal-bg p-3 sm:p-6 rounded-md content-card content-transition">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4 sm:mb-6">
             <h3 className="font-bold text-terminal-amber text-base sm:text-lg break-words section-title">
-              {papers[selectedPaper].title}
+              {PAPERS[selectedPaper].title}
             </h3>
             <a 
-              href={papers[selectedPaper].path} 
+              href={PAPERS[selectedPaper].path} 
               download
               className="bg-terminal-green/20 text-terminal-green px-3 py-2 rounded hover:bg-terminal-green/30 transition-colors text-sm whitespace-nowrap download-button"
               onClick={handleDownloadClick}
@@ -71,18 +63,18 @@ const PapersPage = () => {
           
           <div className="rounded-md overflow-hidden min-h-[300px] sm:min-h-[600px] bg-white mb-4">
             <iframe 
-              src={papers[selectedPaper].path} 
-              title={papers[selectedPaper].title}
+              src={PAPERS[selectedPaper].path} 
+              title={PAPERS[selectedPaper].title}
               className="w-full h-[300px] sm:h-[600px]"
             ></iframe>
           </div>
           
           <div className="text-gray-400 text-sm list-item">
             <p className="break-words">
-              <span className="text-terminal-green">Authors:</span> {papers[selectedPaper].authors}
+              <span className="text-terminal-green">Authors:</span> {PAPERS[selectedPaper].authors}
             </p>
             <p className="break-words">
-              <span className="text-terminal-green">Year:</span> {papers[selectedPaper].date}
+              <span className="text-terminal-green">Year:</span> {PAPERS[selectedPaper].date}
             </p>
           </div>
         </div>
