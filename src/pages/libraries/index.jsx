@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react';
+
 import { pulseElement, runTransitionAnimation } from '../../utils/setupAnimations';
+import LIBRARIES from '../../assets/json/libraries.json';
 
 const LibrariesPage = () => {
   const [activeLibrary, setActiveLibrary] = useState(0);
@@ -13,57 +15,6 @@ const LibrariesPage = () => {
     // Add a custom animation for the active library button using pulse directly
     pulseElement(`.library-button-${index}`);
   };
-
-  const libraries = [
-    {
-      id: 1,
-      name: "VEffect",
-      language: "TypeScript",
-      url: "https://github.com/chrismichaelps/veffect",
-      description: "VEffect Validation is a powerful TypeScript validation library built on the robust foundation of Effect, combining exceptional type safety, high performance, and developer experience. Taking inspiration from Effect's functional principles.",
-      features: [
-        "🔍 Type-Safe - Full TypeScript integration with inferred types",
-        "⚡ High Performance - Built on a functional core for speed and reliability",
-        "🛡️ Comprehensive Validation - Rich set of validators for common use cases",
-        "🧩 Composable - Build complex schemas from simple building blocks",
-        "🔄 Functional - Clean API that encourages immutable operations",
-        "💬 Detailed Errors - Helpful error messages with path tracking",
-        "🔀 Pattern Matching - Dynamic schema selection based on input values",
-        "⚖️ Discriminated Unions - First-class support for TypeScript's discriminated unions",
-        "📚 Schema Registry - Store and manage schemas with metadata",
-        "🧬 Interface Schema - Powerful schema with explicit key optionality",
-        "🔄 Recursive Types - True type-safe recursive structures without type assertions",
-        "🔄 Key vs Value Optionality - Clear distinction between optional keys and optional values"
-      ]
-    },
-    {
-      id: 2,
-      name: "QuantumMatcher",
-      language: "TypeScript",
-      url: "https://github.com/chrismichaelps/quantummatcher",
-      description: "QuantumMatcher library is a fuzzy matching algorithm that leverages bitwise operations to efficiently find approximate matches within a collection of items.",
-      features: [
-        "Fuzzy Matching: Efficiently finds approximate matches in a collection",
-        "Customizable Keys: Specify which keys of the items to match against",
-        "Match Quality Calculation: Considers match ratio, contiguity, position, and partial matches",
-        "Sorted Results: Returns results sorted by match score"
-      ]
-    },
-    {
-      id: 3,
-      name: "FASTA-to-FST",
-      language: "C++",
-      url: "https://github.com/chrismichaelps/fasta-to-fst",
-      description: "This project demonstrates how to convert FASTA files to Finite State Transducers (FSTs). It provides a simple workflow for building the project, converting a FASTA file to an FST, and visualizing the result.",
-      features: [
-        "FASTA file parsing",
-        "Efficient conversion to FST format",
-        "Visualization tools",
-        "Command-line interface",
-        "Bioinformatics utilities"
-      ]
-    }
-  ];
 
   return (
     <div className="space-y-6 max-w-full overflow-x-hidden page-container" ref={rootRef}>
@@ -81,7 +32,7 @@ const LibrariesPage = () => {
             <div className="p-3 sm:p-4 bg-terminal-bg rounded content-card">
               <h3 className="text-lg font-bold mb-3 text-terminal-amber section-title">Libraries</h3>
               <ul className="space-y-2">
-                {libraries.map((lib, index) => (
+                {LIBRARIES.map((lib, index) => (
                   <li key={lib.id} className="list-item">
                     <button
                       onClick={() => handleLibraryChange(index)}
@@ -104,10 +55,10 @@ const LibrariesPage = () => {
           <div className="w-full md:w-2/3 p-3 sm:p-4 bg-terminal-bg rounded content-card content-transition">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-lg sm:text-xl font-bold text-terminal-amber section-title">
-                {libraries[activeLibrary].name}
+                {LIBRARIES[activeLibrary].name}
               </h3>
               <a 
-                href={libraries[activeLibrary].url} 
+                href={LIBRARIES[activeLibrary].url} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-terminal-green/20 text-terminal-green px-3 py-1 rounded hover:bg-terminal-green/30 transition-colors text-sm github-link"
@@ -118,14 +69,14 @@ const LibrariesPage = () => {
             </div>
             
             <div className="mb-4 text-sm sm:text-base bg-terminal-lightBg p-3 rounded dot-pattern-dark">
-              <p className="mb-3">{libraries[activeLibrary].description}</p>
+              <p className="mb-3">{LIBRARIES[activeLibrary].description}</p>
             </div>
             
             <div className="mt-4">
               <h4 className="text-base font-semibold mb-2 text-terminal-amber section-title">Key Features</h4>
               <div className="max-h-[300px] overflow-y-auto pr-2">
                 <ul className="space-y-1 ml-4 list-disc text-xs sm:text-sm">
-                  {libraries[activeLibrary].features.map((feature, idx) => (
+                  {LIBRARIES[activeLibrary].features.map((feature, idx) => (
                     <li key={idx} className="text-gray-300 list-item">
                       {feature}
                     </li>
@@ -140,14 +91,14 @@ const LibrariesPage = () => {
                   <span className="inline-block w-3 h-3 rounded-full mr-1" 
                     style={{ 
                       backgroundColor: 
-                        libraries[activeLibrary].language === 'TypeScript' ? '#3178c6' : 
-                        libraries[activeLibrary].language === 'C++' ? '#f34b7d' : '#ccc' 
+                      LIBRARIES[activeLibrary].language === 'TypeScript' ? '#3178c6' : 
+                      LIBRARIES[activeLibrary].language === 'C++' ? '#f34b7d' : '#ccc' 
                     }}
                   ></span>
-                  {libraries[activeLibrary].language}
+                  {LIBRARIES[activeLibrary].language}
                 </span>
                 <a 
-                  href={`${libraries[activeLibrary].url}/fork`}
+                  href={`${LIBRARIES[activeLibrary].url}/fork`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="mr-4 hover:text-terminal-amber"
