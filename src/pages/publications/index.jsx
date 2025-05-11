@@ -19,6 +19,10 @@ const SkillsPage = () => {
                 <div className="border border-terminal-green/30 p-2 rounded">SQL</div>
                 <div className="border border-terminal-green/30 p-2 rounded">C++</div>
                 <div className="border border-terminal-green/30 p-2 rounded">WebGL</div>
+                <div className="border border-terminal-green/30 p-2 rounded flex items-center">
+                  Scala
+                  <span className="ml-2 text-xs bg-terminal-amber/20 text-terminal-amber px-1 rounded">Learning</span>
+                </div>
               </div>
             </div>
             
