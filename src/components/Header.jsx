@@ -1,9 +1,12 @@
 import { Link, useMatchRoute } from '@tanstack/react-router'
-import { useState } from 'react'
+import { useCallback } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { toggleMenu, closeMenu } from '../store/headerSlice'
 
 const Header = () => {
   const matchRoute = useMatchRoute()
-  const [menuOpen, setMenuOpen] = useState(false)
+  const menuOpen = useSelector((state) => state.header.menuOpen)
+  const dispatch = useDispatch()
   
   const tabs = [
     { id: 'home', label: 'HOME', path: '/' },
@@ -16,9 +19,13 @@ const Header = () => {
     { id: 'contact', label: 'CONTACT', path: '/contact' }
   ]
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen)
-  }
+  const handleToggleMenu = useCallback(() => {
+    dispatch(toggleMenu())
+  }, [dispatch])
+
+  const handleCloseMenu = useCallback(() => {
+    dispatch(closeMenu())
+  }, [dispatch])
 
   return (
     <header className="w-full max-w-7xl mx-auto overflow-x-hidden">
@@ -35,7 +42,7 @@ const Header = () => {
           
           <button 
             className="md:hidden text-terminal-green"
-            onClick={toggleMenu}
+            onClick={handleToggleMenu}
             aria-label="Toggle menu"
           >
             {menuOpen ? (
@@ -57,7 +64,7 @@ const Header = () => {
                       ? 'text-terminal-green border-b border-terminal-green'
                       : 'text-gray-500 hover:text-terminal-green'
                   }`}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={handleCloseMenu}
                 >
                   {tab.label}
                 </Link>

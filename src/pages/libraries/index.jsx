@@ -1,20 +1,27 @@
-import { useState, useRef } from 'react';
-
+import { useRef, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { pulseElement, runTransitionAnimation } from '../../utils/setupAnimations';
 import LIBRARIES from '../../assets/json/libraries.json';
+import { setActiveLibrary } from '../../store/librarySlice';
 
 const LibrariesPage = () => {
-  const [activeLibrary, setActiveLibrary] = useState(0);
+  const activeLibraryIndex = useSelector((state) => state.library.activeLibrary);
+  const dispatch = useDispatch();
   const rootRef = useRef(null);
 
-  const handleLibraryChange = (index) => {
-    setActiveLibrary(index);
-    // Run transition animation without relying on scope methods
+  // Memoized handler to prevent unnecessary re-renders
+  const handleLibraryChange = useCallback((index) => {
+    dispatch(setActiveLibrary(index));
     runTransitionAnimation();
-    
-    // Add a custom animation for the active library button using pulse directly
     pulseElement(`.library-button-${index}`);
-  };
+  }, [dispatch]);
+
+  // Memoized handler for GitHub link clicks
+  const handleGitHubClick = useCallback(() => {
+    pulseElement('.github-link');
+  }, []);
+
+  const activeLibrary = LIBRARIES[activeLibraryIndex];
 
   return (
     <div className="space-y-6 max-w-full overflow-x-hidden page-container" ref={rootRef}>
@@ -37,7 +44,7 @@ const LibrariesPage = () => {
                     <button
                       onClick={() => handleLibraryChange(index)}
                       className={`library-button-${index} w-full text-left p-2 rounded text-sm sm:text-base ${
-                        activeLibrary === index
+                        activeLibraryIndex === index
                           ? 'bg-terminal-green text-terminal-bg font-bold'
                           : 'hover:bg-terminal-bg/60'
                       }`}
@@ -55,28 +62,28 @@ const LibrariesPage = () => {
           <div className="w-full md:w-2/3 p-3 sm:p-4 bg-terminal-bg rounded content-card content-transition">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-lg sm:text-xl font-bold text-terminal-amber section-title">
-                {LIBRARIES[activeLibrary].name}
+                {activeLibrary.name}
               </h3>
               <a 
-                href={LIBRARIES[activeLibrary].url} 
+                href={activeLibrary.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-terminal-green/20 text-terminal-green px-3 py-1 rounded hover:bg-terminal-green/30 transition-colors text-sm github-link"
-                onClick={() => pulseElement('.github-link')}
+                onClick={handleGitHubClick}
               >
                 View on GitHub
               </a>
             </div>
             
             <div className="mb-4 text-sm sm:text-base bg-terminal-lightBg p-3 rounded dot-pattern-dark">
-              <p className="mb-3">{LIBRARIES[activeLibrary].description}</p>
+              <p className="mb-3">{activeLibrary.description}</p>
             </div>
             
             <div className="mt-4">
               <h4 className="text-base font-semibold mb-2 text-terminal-amber section-title">Key Features</h4>
               <div className="max-h-[300px] overflow-y-auto pr-2">
                 <ul className="space-y-1 ml-4 list-disc text-xs sm:text-sm">
-                  {LIBRARIES[activeLibrary].features.map((feature, idx) => (
+                  {activeLibrary.features.map((feature, idx) => (
                     <li key={idx} className="text-gray-300 list-item">
                       {feature}
                     </li>
@@ -91,14 +98,14 @@ const LibrariesPage = () => {
                   <span className="inline-block w-3 h-3 rounded-full mr-1" 
                     style={{ 
                       backgroundColor: 
-                      LIBRARIES[activeLibrary].language === 'TypeScript' ? '#3178c6' : 
-                      LIBRARIES[activeLibrary].language === 'C++' ? '#f34b7d' : '#ccc' 
+                      activeLibrary.language === 'TypeScript' ? '#3178c6' : 
+                      activeLibrary.language === 'C++' ? '#f34b7d' : '#ccc' 
                     }}
                   ></span>
-                  {LIBRARIES[activeLibrary].language}
+                  {activeLibrary.language}
                 </span>
                 <a 
-                  href={`${LIBRARIES[activeLibrary].url}/fork`}
+                  href={`${activeLibrary.url}/fork`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="mr-4 hover:text-terminal-amber"

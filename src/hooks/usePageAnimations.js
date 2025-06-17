@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
-import { createScope } from 'animejs';
-import { runTransitionAnimation, pulseElement } from '../utils/setupAnimations';
+import { useEffect, useRef } from "react";
+import { createScope } from "animejs";
+import { runTransitionAnimation, pulseElement } from "../utils/setupAnimations";
 
-// This is a utility component that can be imported in any page component
+// This is a utility hook that can be imported in any page component
 // to add standardized animations across the site
 const usePageAnimations = (rootRef) => {
   const scopeRef = useRef(null);
@@ -16,13 +16,13 @@ const usePageAnimations = (rootRef) => {
       try {
         // Create scope with rootRef
         const scope = createScope({ root: rootRef });
-        
+
         // Create methods object with animation functions
         scope.methods = {
           transitionContent: runTransitionAnimation,
-          pulseElement: pulseElement
+          pulseElement: pulseElement,
         };
-        
+
         // Store the scope
         scopeRef.current = scope;
       } catch (error) {
@@ -45,4 +45,4 @@ const usePageAnimations = (rootRef) => {
   return scopeRef;
 };
 
-export default usePageAnimations; 
+export default usePageAnimations;

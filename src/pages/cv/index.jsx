@@ -1,12 +1,15 @@
-import { useRef, useState } from 'react';
+import { useRef, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { pulseElement } from '../../utils/setupAnimations';
+import { setViewingPdf } from '../../store/cvSlice';
 
 const ResumePage = () => {
-  const [viewingPdf, setViewingPdf] = useState(false);
+  const viewingPdf = useSelector((state) => state.cv.viewingPdf);
+  const dispatch = useDispatch();
   const resumeContainerRef = useRef(null);
 
-  const handleViewResumeClick = () => {
-    setViewingPdf(true);
+  const handleViewResumeClick = useCallback(() => {
+    dispatch(setViewingPdf(true));
     // Scroll to PDF container
     setTimeout(() => {
       if (resumeContainerRef.current) {
@@ -14,11 +17,11 @@ const ResumePage = () => {
       }
     }, 100);
     pulseElement('.pdf-container');
-  };
+  }, [dispatch]);
 
-  const handleDownloadClick = () => {
+  const handleDownloadClick = useCallback(() => {
     pulseElement('.download-button');
-  };
+  }, []);
 
   return (
     <div className="space-y-8">

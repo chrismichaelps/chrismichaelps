@@ -1,18 +1,21 @@
-import { useState, useRef } from 'react';
-import usePageAnimations from '../../components/PageAnimations';
+import { useRef, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import usePageAnimations from '../../hooks/usePageAnimations';
+import { setActiveSection } from '../../store/homeSlice';
 
 const HomePage = () => {
-  const [activeSection, setActiveSection] = useState('summary');
+  const activeSection = useSelector((state) => state.home.activeSection);
+  const dispatch = useDispatch();
   const rootRef = useRef(null);
   const scopeRef = usePageAnimations(rootRef);
 
-  const handleSectionChange = (key) => {
-    setActiveSection(key);
+  const handleSectionChange = useCallback((key) => {
+    dispatch(setActiveSection(key));
     // Use the animation scope's transition method
     if (scopeRef.current && scopeRef.current.methods) {
       scopeRef.current.methods.transitionContent();
     }
-  };
+  }, [dispatch, scopeRef]);
 
   const sections = {
     summary: {

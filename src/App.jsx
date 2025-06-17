@@ -1,30 +1,33 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Outlet, useMatchRoute } from '@tanstack/react-router'
+import { useSelector, useDispatch } from 'react-redux'
 import { runPageAnimations } from './utils/setupAnimations'
+import { setLoaded, setRendered } from './store/appSlice'
 
 import Header from './components/Header'
 import './App.css'
 
 function App() {
-  const [loaded, setLoaded] = useState(false)
-  const [rendered, setRendered] = useState(false)
+  const loaded = useSelector((state) => state.app.loaded)
+  const rendered = useSelector((state) => state.app.rendered)
+  const dispatch = useDispatch()
   const matchRoute = useMatchRoute()
 
   // Run animations when the component mounts
   useEffect(() => {
     // Simulate loading
     setTimeout(() => {
-      setLoaded(true)
+      dispatch(setLoaded(true))
       
       // Trigger a re-render after a small delay, then run animations
       setTimeout(() => {
-        setRendered(true)
+        dispatch(setRendered(true))
         setTimeout(() => {
           runPageAnimations()
         }, 50)
       }, 100)
     }, 1000)
-  }, [])
+  }, [dispatch])
 
   // Run animations on route change
   useEffect(() => {

@@ -1,22 +1,24 @@
-import { useState, useRef } from 'react';
-
+import { useRef, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { pulseElement, runTransitionAnimation } from '../../utils/setupAnimations';
 import PAPERS from '../../assets/json/papers.json';
+import { setSelectedPaper } from '../../store/papersSlice';
 
 const PapersPage = () => {
-  const [selectedPaper, setSelectedPaper] = useState(0);
+  const selectedPaperIndex = useSelector((state) => state.papers.selectedPaper);
+  const dispatch = useDispatch();
   const rootRef = useRef(null);
 
-  const handlePaperSelection = (index) => {
-    setSelectedPaper(index);
-    // Run transition animation directly
+  const handlePaperSelection = useCallback((index) => {
+    dispatch(setSelectedPaper(index));
     runTransitionAnimation();
-  };
+  }, [dispatch]);
 
-  const handleDownloadClick = () => {
-    // Pulse the download button directly
+  const handleDownloadClick = useCallback(() => {
     pulseElement('.download-button');
-  };
+  }, []);
+
+  const selectedPaper = PAPERS[selectedPaperIndex];
 
   return (
     <div className="space-y-6 max-w-full overflow-x-hidden page-container" ref={rootRef}>
@@ -33,7 +35,7 @@ const PapersPage = () => {
           {PAPERS.map((paper, index) => (
             <div 
               key={paper.id} 
-              className={`bg-terminal-bg p-3 sm:p-4 rounded-md hover:border-terminal-green/50 border ${selectedPaper === index ? 'border-terminal-green' : 'border-terminal-green/20'} transition-colors cursor-pointer content-card list-item`}
+              className={`bg-terminal-bg p-3 sm:p-4 rounded-md hover:border-terminal-green/50 border ${selectedPaperIndex === index ? 'border-terminal-green' : 'border-terminal-green/20'} transition-colors cursor-pointer content-card list-item`}
               onClick={() => handlePaperSelection(index)}
             >
               <h3 className="font-bold text-terminal-amber mb-2 break-words">{paper.title}</h3>
@@ -49,10 +51,10 @@ const PapersPage = () => {
         <div className="bg-terminal-bg p-3 sm:p-6 rounded-md content-card content-transition">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4 sm:mb-6">
             <h3 className="font-bold text-terminal-amber text-base sm:text-lg break-words section-title">
-              {PAPERS[selectedPaper].title}
+              {selectedPaper.title}
             </h3>
             <a 
-              href={PAPERS[selectedPaper].path} 
+              href={selectedPaper.path} 
               download
               className="bg-terminal-green/20 text-terminal-green px-3 py-2 rounded hover:bg-terminal-green/30 transition-colors text-sm whitespace-nowrap download-button"
               onClick={handleDownloadClick}
@@ -63,18 +65,18 @@ const PapersPage = () => {
           
           <div className="rounded-md overflow-hidden min-h-[300px] sm:min-h-[600px] bg-white mb-4">
             <iframe 
-              src={PAPERS[selectedPaper].path} 
-              title={PAPERS[selectedPaper].title}
+              src={selectedPaper.path} 
+              title={selectedPaper.title}
               className="w-full h-[300px] sm:h-[600px]"
             ></iframe>
           </div>
           
           <div className="text-gray-400 text-sm list-item">
             <p className="break-words">
-              <span className="text-terminal-green">Authors:</span> {PAPERS[selectedPaper].authors}
+              <span className="text-terminal-green">Authors:</span> {selectedPaper.authors}
             </p>
             <p className="break-words">
-              <span className="text-terminal-green">Year:</span> {PAPERS[selectedPaper].date}
+              <span className="text-terminal-green">Year:</span> {selectedPaper.date}
             </p>
           </div>
         </div>
