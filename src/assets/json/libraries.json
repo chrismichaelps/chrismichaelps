@@ -67,5 +67,15 @@
       "Command-line interface",
       "Bioinformatics utilities"
     ]
+  },
+  {
+    "id": 4,
+    "name": "Immutable State Effect (ISE)",
+    "language": "TypeScript",
+    "url": "https://github.com/chrismichaelps/ise",
+    "description": "ISE is a type-safe, scalable state management library inspired by Immer for front-end apps. It offers a mutable-style API for immutable state, backed by TypeScript generics. Built for complex state, ISE optimizes performance with batching, sharding, and memoization.",
+    "features": [
+      "Immutable"
+    ]
   }
 ]
