@@ -1,6 +1,12 @@
+import { SuperSEO } from 'react-super-seo';
+
 const SkillsPage = () => {
   return (
     <div className="space-y-8">
+      <SuperSEO
+        title="Skills & Technologies"
+        description="Explore Chris M. Pérez's technical skills and technologies, including languages, frontend, backend, databases, and more."
+      />
       <div className="terminal-heading mb-6">
         <span className="text-terminal-amber">&gt;</span> Skills & Technologies
       </div>

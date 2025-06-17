@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { pulseElement, runTransitionAnimation } from '../../utils/setupAnimations';
 import PAPERS from '../../assets/json/papers.json';
 import { setSelectedPaper } from '../../store/papersSlice';
+import { SuperSEO } from 'react-super-seo';
 
 const PapersPage = () => {
   const selectedPaperIndex = useSelector((state) => state.papers.selectedPaper);
@@ -22,6 +23,10 @@ const PapersPage = () => {
 
   return (
     <div className="space-y-6 max-w-full overflow-x-hidden page-container" ref={rootRef}>
+      <SuperSEO
+        title="Published Papers"
+        description="Explore Chris M. Pérez's published academic papers and research."
+      />
       <div className="terminal-heading mb-4 section-title">
         <span className="text-terminal-amber">_</span> Published Papers
       </div>

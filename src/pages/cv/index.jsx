@@ -2,6 +2,7 @@ import { useRef, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { pulseElement } from '../../utils/setupAnimations';
 import { setViewingPdf } from '../../store/cvSlice';
+import { SuperSEO } from 'react-super-seo';
 
 const ResumePage = () => {
   const viewingPdf = useSelector((state) => state.cv.viewingPdf);
@@ -25,6 +26,10 @@ const ResumePage = () => {
 
   return (
     <div className="space-y-8">
+      <SuperSEO
+        title="Resume"
+        description="View Chris M. Pérez's professional resume, including education, work experience, and technical skills."
+      />
       <div className="terminal-heading mb-6">
         <span className="text-terminal-amber">&gt;</span> Resume
       </div>

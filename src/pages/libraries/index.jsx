@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { pulseElement, runTransitionAnimation } from '../../utils/setupAnimations';
 import LIBRARIES from '../../assets/json/libraries.json';
 import { setActiveLibrary } from '../../store/librarySlice';
+import { SuperSEO } from 'react-super-seo';
 
 const LibrariesPage = () => {
   const activeLibraryIndex = useSelector((state) => state.library.activeLibrary);
@@ -25,6 +26,10 @@ const LibrariesPage = () => {
 
   return (
     <div className="space-y-6 max-w-full overflow-x-hidden page-container" ref={rootRef}>
+      <SuperSEO
+        title="Open Source Libraries"
+        description="Explore Chris M. Pérez's open source software libraries and projects."
+      />
       <div className="terminal-heading mb-4 section-title">
         <span className="text-terminal-amber">_</span> Open Source Libraries
       </div>

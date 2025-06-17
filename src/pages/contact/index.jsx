@@ -1,6 +1,12 @@
+import { SuperSEO } from 'react-super-seo';
+
 const ContactPage = () => {
   return (
     <div className="space-y-8">
+      <SuperSEO
+        title="Contact"
+        description="Contact Chris M. Pérez for professional inquiries, collaborations, or questions."
+      />
       <div className="terminal-heading mb-6">
         <span className="text-terminal-amber">_</span> Contact
       </div>

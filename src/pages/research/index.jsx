@@ -1,6 +1,12 @@
+import { SuperSEO } from 'react-super-seo';
+
 const ExperiencePage = () => {
   return (
     <div className="space-y-8">
+      <SuperSEO
+        title="Experience"
+        description="Explore Chris M. Pérez's professional experience, including roles at MeshMap, VoyTuristeando, Travelsafe, and more."
+      />
       <div className="terminal-heading mb-6">
         <span className="text-terminal-amber">&gt;</span> Experience
       </div>

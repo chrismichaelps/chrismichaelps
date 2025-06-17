@@ -2,6 +2,7 @@ import { useRef, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import usePageAnimations from '../../hooks/usePageAnimations';
 import { setActiveSection } from '../../store/homeSlice';
+import { SuperSEO } from 'react-super-seo';
 
 const HomePage = () => {
   const activeSection = useSelector((state) => state.home.activeSection);
@@ -19,7 +20,7 @@ const HomePage = () => {
 
   const sections = {
     summary: {
-      title: 'Summary',
+      title: 'Home',
       content: [
         'Results-driven software developer with strong expertise in both front-end and back-end development.',
         'Currently working on 3D mapping and AR technologies at MeshMap, building immersive spatial computing experiences.',
@@ -53,6 +54,10 @@ const HomePage = () => {
 
   return (
     <div className="space-y-6 max-w-full overflow-x-hidden page-container" ref={rootRef}>
+      <SuperSEO
+        title="Home"
+        description="Welcome to Chris M. Pérez's developer profile. Discover summary, experience, and technical skills."
+      />
       <div className="terminal-heading mb-4 section-title">
         <span className="text-terminal-amber">&gt;</span> Welcome to my developer profile
       </div>

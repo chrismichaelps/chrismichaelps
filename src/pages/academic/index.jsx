@@ -1,6 +1,12 @@
+import { SuperSEO } from 'react-super-seo';
+
 const AcademicPage = () => {
   return (
     <div className="space-y-8">
+      <SuperSEO
+        title="Academic Research"
+        description="Explore Chris M. Pérez's academic bioinformatics research, focusing on finite-state transducers and sequence analysis."
+      />
       <div className="terminal-heading mb-6">
         <span className="text-terminal-amber">_</span> Academic Research
       </div>
