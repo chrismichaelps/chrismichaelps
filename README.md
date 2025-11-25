@@ -1,3 +1,1 @@
-### 🎯 2025 Goals
-
- <img src="https://www.scala-lang.org/resources/img/frontpage/scala-spiral.png" alt="Scala Logo" width="10" /> Learning Scala
+Software Developer in MeshMap • Creator/Author of Solis - Programming Language • Pure functional language w/ LLVM backend
