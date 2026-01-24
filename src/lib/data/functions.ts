@@ -21,15 +21,12 @@ export const constUndefined: LazyArg<undefined> = constant(undefined);
 
 export const constVoid: LazyArg<void> = constUndefined;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const absurd = <A>(_value: never): A => {
   throw new Error('Called `absurd` function which should be uncallable');
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyFunction = (...args: any[]) => any;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyArgs = readonly any[];
 
 type Fn<A = unknown, B = unknown> = (a: A) => B;
