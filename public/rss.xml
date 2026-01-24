@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Chris M. Pérez</title>
+    <link>https://chrismichaelps.com</link>
+    <description>Software engineer focused on functional programming, reactive systems, and developer experience.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Jan 2026 02:10:00 GMT</lastBuildDate>
+    <atom:link href="https://chrismichaelps.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <generator>Custom RSS Generator</generator>
+    <managingEditor>chrisperezsantiago1@gmail.com (Chris M. Pérez)</managingEditor>
+    <webMaster>chrisperezsantiago1@gmail.com (Chris M. Pérez)</webMaster>
+    <image>
+      <url>https://chrismichaelps.com/favicon.svg</url>
+      <title>Chris M. Pérez</title>
+      <link>https://chrismichaelps.com</link>
+    </image>
+    <item>
+      <title>Effuse</title>
+      <link>https://github.com/chrismichaelps/effuse</link>
+      <description>Effuse is a personal exploration into building a modern reactive framework. It prioritizes simplicity and fine-grained reactivity using Signals, offering a familiar developer experience without the complexity of a virtual DOM.</description>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://github.com/chrismichaelps/effuse</guid>
+      <category>Project</category>
+    </item>
+    <item>
+      <title>Effuse Docs</title>
+      <link>https://effuse-doc.vercel.app</link>
+      <description>Official documentation for the Effuse framework.</description>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://effuse-doc.vercel.app</guid>
+      <category>Documentation</category>
+    </item>
+  </channel>
+</rss>
