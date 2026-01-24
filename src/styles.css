@@ -1,0 +1,418 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* Antigravity-inspired Design System */
+@theme {
+  /* Colors */
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F8F9FC;
+  --color-on-surface: #121317;
+  --color-on-surface-secondary: #45474D;
+  --color-on-surface-muted: #6B6D73;
+  --color-border: rgba(33, 34, 38, 0.06);
+  --color-border-hover: rgba(33, 34, 38, 0.12);
+  --color-accent: rgba(183, 191, 217, 0.1);
+  
+  /* Spacing */
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-lg: 48px;
+  --radius-full: 9999px;
+}
+
+/* Base Styles */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  /* Smooth theme transitions */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth theme transitions for common elements */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
+}
+
+/* Typography - Antigravity style */
+.heading-hero {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .heading-hero {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading-hero {
+    font-size: 4rem;
+  }
+}
+
+/* Large Dimmed Section Headers (antfu.me style) */
+.section-header-bg {
+  font-size: 3rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.03);
+  letter-spacing: -0.02em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .section-header-bg {
+    font-size: 4.5rem;
+  }
+}
+
+/* Navigation Styles */
+.nav-link {
+  position: relative;
+  color: var(--color-on-surface-muted);
+  font-size: 0.875rem;
+  font-weight: 450;
+  transition: color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.nav-link:hover {
+  color: var(--color-on-surface);
+}
+
+/* Icon Button Styles */
+.icon-btn {
+  color: var(--color-on-surface-muted);
+  transition: color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.icon-btn:hover {
+  color: var(--color-on-surface);
+}
+
+/* Button Styles - Antigravity inspired */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-on-surface);
+  color: var(--color-surface);
+  font-size: 0.875rem;
+  font-weight: 450;
+  border-radius: var(--radius-full);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(18, 19, 23, 0.15);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-on-surface);
+  font-size: 0.875rem;
+  font-weight: 450;
+  border-radius: var(--radius-full);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(183, 191, 217, 0.2);
+}
+
+/* Project Card Styles */
+.project-card {
+  display: block;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.project-card:hover {
+  border-color: var(--color-border-hover);
+  padding-left: 0.5rem;
+}
+
+.project-card:last-child {
+  border-bottom: none;
+}
+
+/* Timeline Styles */
+.timeline-item {
+  position: relative;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--color-border);
+  padding-bottom: 1.5rem;
+  transition: border-color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.timeline-item:hover {
+  border-left-color: var(--color-on-surface-muted);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* GSAP Animation Classes */
+.gsap-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.gsap-slide-in {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.gsap-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(33, 34, 38, 0.15);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(33, 34, 38, 0.25);
+}
+
+/* Selection Style */
+::selection {
+  background-color: #b4d5fe;
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--color-on-surface-muted);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Billy Argel Tomatoes Signature Logo */
+.signature-logo {
+  font-family: 'Tomatoes', 'Great Vibes', 'Brush Script MT', cursive;
+  font-size: 28px;
+  font-weight: 400;
+  color: #1f2937;
+  letter-spacing: 0.5px;
+  display: block;
+  cursor: pointer;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .signature-logo {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .signature-logo {
+    font-size: 36px;
+  }
+}
+
+.logo-link {
+  display: flex !important;
+  align-items: center;
+  min-height: 40px;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+html.dark .signature-logo {
+  color: #e5e7eb;
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .heading-hero {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  h2, h3 {
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .signature-logo {
+    font-size: 24px;
+  }
+
+  .heading-hero {
+    font-size: 2rem;
+  }
+}
+
+/* Dark Mode Styles */
+html.dark {
+  --color-surface: #000000;
+  --color-surface-secondary: #0a0a0a;
+  --color-on-surface: #ffffff;
+  --color-on-surface-secondary: #b0b0b0;
+  --color-on-surface-muted: #888888;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.15);
+  --color-accent: rgba(255, 255, 255, 0.08);
+}
+
+html.dark body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+html.dark .text-gray-900 {
+  color: #ffffff;
+}
+
+html.dark .text-gray-600 {
+  color: #b0b0b0;
+}
+
+html.dark .text-gray-500 {
+  color: #888888;
+}
+
+html.dark .text-gray-400 {
+  color: #666666;
+}
+
+html.dark .bg-white {
+  background-color: #000000;
+}
+
+html.dark .border-gray-100 {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .btn-primary {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+html.dark .btn-secondary {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+html.dark .project-card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .project-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+html.dark ::selection {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Theme toggle animation */
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-on-surface-muted);
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.2s ease, color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.icon-btn:hover {
+  color: var(--color-on-surface);
+  opacity: 0.7;
+}
+
+.icon-btn:active {
+  transform: scale(0.9);
+}
+
+.icon-img {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+html.dark .icon-img {
+  filter: invert(1);
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+
+
+

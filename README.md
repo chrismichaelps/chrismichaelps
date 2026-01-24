@@ -1,1 +1,1 @@
-Software Developer
+Software Developer @ Creator of Effuse
