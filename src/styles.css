@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap");
 @import "tailwindcss";
 
-/* Antigravity-inspired Design System */
 @theme {
-  /* Colors */
   --color-surface: #FFFFFF;
   --color-surface-secondary: #F8F9FC;
   --color-on-surface: #121317;
@@ -13,14 +11,12 @@
   --color-border-hover: rgba(33, 34, 38, 0.12);
   --color-accent: rgba(183, 191, 217, 0.1);
   
-  /* Spacing */
   --radius-sm: 12px;
   --radius-md: 24px;
   --radius-lg: 48px;
   --radius-full: 9999px;
 }
 
-/* Base Styles */
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: var(--color-surface);
@@ -31,16 +27,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   letter-spacing: -0.01em;
-  /* Smooth theme transitions */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Smooth theme transitions for common elements */
 *, *::before, *::after {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
 }
 
-/* Typography - Antigravity style */
 .heading-hero {
   font-size: 2.5rem;
   font-weight: 500;
@@ -60,7 +53,6 @@ body {
   }
 }
 
-/* Large Dimmed Section Headers (antfu.me style) */
 .section-header-bg {
   font-size: 3rem;
   font-weight: 600;
@@ -77,7 +69,6 @@ body {
   }
 }
 
-/* Navigation Styles */
 .nav-link {
   position: relative;
   color: var(--color-on-surface-muted);
@@ -90,7 +81,6 @@ body {
   color: var(--color-on-surface);
 }
 
-/* Icon Button Styles */
 .icon-btn {
   color: var(--color-on-surface-muted);
   transition: color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
@@ -100,7 +90,6 @@ body {
   color: var(--color-on-surface);
 }
 
-/* Button Styles - Antigravity inspired */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -136,7 +125,6 @@ body {
   background-color: rgba(183, 191, 217, 0.2);
 }
 
-/* Project Card Styles */
 .project-card {
   display: block;
   padding: 1.25rem 0;
@@ -153,7 +141,6 @@ body {
   border-bottom: none;
 }
 
-/* Timeline Styles */
 .timeline-item {
   position: relative;
   padding-left: 1.25rem;
@@ -170,7 +157,6 @@ body {
   padding-bottom: 0;
 }
 
-/* GSAP Animation Classes */
 .gsap-fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -186,7 +172,6 @@ body {
   transform: scale(0.95);
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -205,23 +190,19 @@ body {
   background-color: rgba(33, 34, 38, 0.25);
 }
 
-/* Selection Style */
 ::selection {
   background-color: #b4d5fe;
 }
 
-/* Focus Styles */
 :focus-visible {
   outline: 2px solid var(--color-on-surface-muted);
   outline-offset: 2px;
 }
 
-/* Smooth transitions */
 a, button {
   transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* Billy Argel Tomatoes Signature Logo */
 .signature-logo {
   font-family: 'Tomatoes', 'Great Vibes', 'Brush Script MT', cursive;
   font-size: 28px;
@@ -259,7 +240,6 @@ html.dark .signature-logo {
   color: #e5e7eb;
 }
 
-/* Responsive improvements */
 @media (max-width: 640px) {
   .heading-hero {
     font-size: 2.5rem;
@@ -303,7 +283,6 @@ html.dark .signature-logo {
   }
 }
 
-/* Dark Mode Styles */
 html.dark {
   --color-surface: #000000;
   --color-surface-secondary: #0a0a0a;
@@ -374,7 +353,6 @@ html.dark ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Theme toggle animation */
 .icon-btn {
   display: flex;
   align-items: center;

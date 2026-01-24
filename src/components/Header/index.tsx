@@ -25,7 +25,6 @@ const socialLinks: SocialLink[] = [
   { name: "RSS", url: "/rss.xml", icon: "/icons/rss.svg" },
 ];
 
-// Cursive signature logo for "Chris"
 const AnimatedLogo = () => <div class="signature-logo">Chris</div>;
 
 export const Header = define({
@@ -105,7 +104,7 @@ export const Header = define({
                 style={`width: ${ICON_SIZES.SMALL}; height: ${ICON_SIZES.SMALL};`}
               />
             </button>
-           </div>
+          </div>
 
           <div class="md:hidden flex items-center gap-2">
             <button
@@ -119,7 +118,7 @@ export const Header = define({
                 class="icon-img"
                 style={`width: ${ICON_SIZES.SMALL}; height: ${ICON_SIZES.SMALL};`}
               />
-             </button>
+            </button>
 
             <button
               class="icon-btn p-3 transition-transform duration-300 ease-in-out"
@@ -143,7 +142,7 @@ export const Header = define({
             </button>
           </div>
         </div>
-       </nav>
+      </nav>
 
       <div
         id="mobile-menu"
