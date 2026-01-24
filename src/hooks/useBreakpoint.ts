@@ -4,23 +4,7 @@ import { TaggedError } from '../lib/data/tagged-error';
 import { matchTag } from '../lib/data/functions';
 import { BREAKPOINTS } from '../constants';
 import { logger } from '../utils/logger';
-
-type BreakpointMobile = {
-	readonly _tag: 'Mobile';
-	readonly width: number;
-};
-
-type BreakpointTablet = {
-	readonly _tag: 'Tablet';
-	readonly width: number;
-};
-
-type BreakpointDesktop = {
-	readonly _tag: 'Desktop';
-	readonly width: number;
-};
-
-type BreakpointState = BreakpointMobile | BreakpointTablet | BreakpointDesktop;
+import { BreakpointState, BreakpointConfig, BreakpointReturn } from '../types';
 
 const Breakpoint = taggedEnum<BreakpointState>();
 
@@ -45,32 +29,14 @@ const toBreakpoint = (width: number): BreakpointState => {
 		} as BreakpointErrorType);
 	}
 
-  if (width < BREAKPOINTS.MOBILE) {
-    return Mobile(width);
-  }
-  if (width < BREAKPOINTS.TABLET) {
-    return Tablet(width);
-  }
+	if (width < BREAKPOINTS.MOBILE) {
+		return Mobile(width);
+	}
+	if (width < BREAKPOINTS.TABLET) {
+		return Tablet(width);
+	}
 	return Desktop(width);
 };
-
-interface BreakpointConfig {
-	readonly mobile?: number;
-	readonly tablet?: number;
-}
-
-interface BreakpointReturn {
-	readonly state: Signal<BreakpointState>;
-	readonly width: ReadonlySignal<number>;
-	readonly isMobile: ReadonlySignal<boolean>;
-	readonly isTablet: ReadonlySignal<boolean>;
-	readonly isDesktop: ReadonlySignal<boolean>;
-	readonly isMobileOrSmaller: ReadonlySignal<boolean>;
-	readonly isTabletOrSmaller: ReadonlySignal<boolean>;
-	readonly breakpoint: ReadonlySignal<string>;
-	readonly init: () => void;
-	readonly destroy: () => void;
-}
 
 export const useBreakpoint = defineHook<BreakpointConfig, BreakpointReturn>({
 	name: 'useBreakpoint',

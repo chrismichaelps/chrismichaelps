@@ -4,23 +4,9 @@ import { TaggedError } from '../lib/data/tagged-error';
 import { STORAGE_KEYS } from '../constants';
 import { logger } from '../utils/logger';
 import { animateThemeTransition } from '../utils/animations';
-
-type ThemeLight = { readonly _tag: 'Light' };
-type ThemeDark = { readonly _tag: 'Dark' };
-type ThemeState = ThemeLight | ThemeDark;
+import { ThemeState, ThemeStoreState, ThemeStoreActions } from '../types';
 
 const Theme = taggedEnum<ThemeState>();
-
-export interface ThemeStoreState {
-  theme: ThemeState;
-  isDark: boolean;
-}
-
-export interface ThemeStoreActions {
-  toggleTheme: () => void;
-  setTheme: (isDark: boolean, animate?: boolean) => void;
-  initTheme: () => void;
-}
 
 function applyTheme(isDark: boolean): void {
   if (isDark) {

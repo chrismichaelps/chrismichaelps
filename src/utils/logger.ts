@@ -1,6 +1,7 @@
 import { taggedEnum } from '../lib/data/tagged-enum';
 import { TaggedError, isTaggedError } from '../lib/data/tagged-error';
 import { matchTag } from '../lib/data/functions';
+import { LogContext, Logger } from '../types';
 
 type LogLevelDebug = { readonly _tag: 'Debug' };
 type LogLevelInfo = { readonly _tag: 'Info' };
@@ -9,19 +10,6 @@ type LogLevelError = { readonly _tag: 'Error' };
 type LogLevel = LogLevelDebug | LogLevelInfo | LogLevelWarn | LogLevelError;
 
 const LogLevel = taggedEnum<LogLevel>();
-
-export interface LogContext {
-  readonly tag?: string;
-  readonly data?: Record<string, unknown>;
-}
-
-export interface Logger {
-  debug(message: string, context?: LogContext): void;
-  info(message: string, context?: LogContext): void;
-  warn(message: string, context?: LogContext): void;
-  error(error: TaggedError<string> | Error | string, context?: LogContext): void;
-  log(level: LogLevel, message: string, context?: LogContext): void;
-}
 
 class ConsoleLogger implements Logger {
   private formatMessage(level: string, message: string, context?: LogContext): string {

@@ -1,11 +1,5 @@
-import { defineHook, type Signal } from '@effuse/core';
-
-export interface UseMobileMenuReturn {
-  readonly isOpen: Signal<boolean>;
-  readonly toggle: () => void;
-  readonly open: () => void;
-  readonly close: () => void;
-}
+import { defineHook } from '@effuse/core';
+import { UseMobileMenuReturn } from '../types';
 
 export const useMobileMenu = defineHook<{}, UseMobileMenuReturn>({
   name: 'useMobileMenu',
