@@ -1,4 +1,4 @@
-import { defineHook, type Signal, type ReadonlySignal } from '@effuse/core';
+import { defineHook, type ReadonlySignal } from '@effuse/core';
 import { taggedEnum } from '../lib/data/tagged-enum';
 import { TaggedError } from '../lib/data/tagged-error';
 import { matchTag } from '../lib/data/functions';
