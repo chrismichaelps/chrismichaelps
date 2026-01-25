@@ -37,9 +37,9 @@ export const HomePage = define({
           I'm a software developer with a genuine love for system architecture
           and functional design. I started my journey with Java, but while still
           new to programming, I discovered the world of functional programming
-          through Haskell—thanks to creators like Tsoding. Both paradigms shaped
-          my early foundation, blending sturdy object-oriented principles with
-          functional elegance.
+          through Haskell—thanks to content creators like Tsoding. Both
+          paradigms shaped my early foundation, blending sturdy object-oriented
+          principles with functional elegance.
           <br />
           <br />
           Curious about how modern web tools actually work under the hood, I
