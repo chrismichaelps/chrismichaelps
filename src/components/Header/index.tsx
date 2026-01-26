@@ -9,6 +9,7 @@ const navItems: NavItem[] = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
   { to: "/research", label: "Research" },
+  { to: "/tech", label: "Skills" },
 ];
 
 const socialLinks: SocialLink[] = [

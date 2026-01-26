@@ -9,12 +9,14 @@ import { HomePage } from '../pages/Home';
 import { ResearchPage } from '../pages/Research';
 import { ProjectsPage } from '../pages/Projects';
 import { NotFoundPage } from '../pages/NotFound';
+import { TechPage } from '../pages/Tech';
 import { logger } from '../utils/logger';
 
 const routes: RouteRecord[] = [
   { path: '/', name: 'home', component: HomePage },
   { path: '/projects', name: 'projects', component: ProjectsPage },
   { path: '/research', name: 'research', component: ResearchPage },
+  { path: '/tech', name: 'tech', component: TechPage },
   { path: '*', name: 'not-found', component: NotFoundPage },
 ];
 
