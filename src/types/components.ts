@@ -19,3 +19,17 @@ export interface Project {
 export interface AppLayoutProps {
   children?: unknown;
 }
+
+export interface SkillItem {
+  name: string;
+  iconName: string;
+  isEffuse?: boolean;
+  shouldInvert?: boolean;
+  hasPlainVariant?: boolean;
+}
+
+export interface SkillCategoryData {
+  title: string;
+  description?: string;
+  items: SkillItem[];
+}
