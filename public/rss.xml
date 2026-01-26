@@ -8,7 +8,7 @@
     <link>https://chrismichaelps.com</link>
     <description>Software engineer focused on functional programming, reactive systems, and developer experience.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Jan 2026 02:10:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Jan 2026 21:13:45 GMT</lastBuildDate>
     <atom:link href="https://chrismichaelps.com/rss.xml" rel="self" type="application/rss+xml"/>
     <generator>Custom RSS Generator</generator>
     <managingEditor>chrisperezsantiago1@gmail.com (Chris M. Pérez)</managingEditor>
@@ -33,6 +33,14 @@
       <pubDate>Fri, 23 Jan 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="true">https://effuse-doc.vercel.app</guid>
       <category>Documentation</category>
+    </item>
+    <item>
+      <title>Tech Stack</title>
+      <link>https://chrismichaelps.com/tech</link>
+      <description>A comprehensive overview of the languages, frameworks, and infrastructure tools I leverage to build production-grade software and high-performance visualizations.</description>
+      <pubDate>Mon, 26 Jan 2026 21:13:45 GMT</pubDate>
+      <guid isPermaLink="true">https://chrismichaelps.com/tech</guid>
+      <category>Skills</category>
     </item>
   </channel>
 </rss>
