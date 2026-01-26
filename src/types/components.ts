@@ -25,6 +25,7 @@ export interface SkillItem {
   iconName: string;
   isEffuse?: boolean;
   shouldInvert?: boolean;
+  invertStrategy?: "light" | "dark";
   hasPlainVariant?: boolean;
 }
 

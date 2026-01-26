@@ -1,4 +1,4 @@
-import { define, useHead } from "@effuse/core";
+import { define, useHead, type Signal } from "@effuse/core";
 import { initPageAnimations } from "../../utils/animations";
 import { themeStore } from "../../store";
 import { LOCAL_ICONS_PATH, SKILLS_DATA } from "../../constants/skills";
@@ -14,7 +14,6 @@ const getIconUrl = (skill: SkillItem, isDark: boolean): string => {
   if (isDark && skill.hasPlainVariant) {
     return `${LOCAL_ICONS_PATH}/${skill.iconName}-plain.svg`;
   }
-
   return `${LOCAL_ICONS_PATH}/${skill.iconName}-original.svg`;
 };
 
@@ -23,34 +22,36 @@ const SkillCard = ({
   isDark,
 }: {
   skill: SkillItem;
-  isDark: boolean;
-}) => (
-  <div class="group relative flex items-center gap-4 px-5 py-4 rounded-[var(--radius-sm)] bg-[var(--color-surface-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface)] hover:shadow-lg transition-all duration-300 cursor-default">
-    <div class="w-10 h-10 flex items-center justify-center shrink-0 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] group-hover:scale-110 group-hover:shadow-sm transition-all duration-300 overflow-hidden">
-      <img
-        src={getIconUrl(skill, isDark)}
-        alt={skill.name}
-        class={`w-7 h-7 object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 ${skill.shouldInvert && isDark ? "invert" : ""}`}
-        onError={(e: string | Event) => {
-          if (typeof e !== "string") {
-            (e.target as HTMLImageElement).parentElement!.style.display =
-              "none";
-          }
-        }}
-      />
+  isDark: Signal<boolean>;
+}) => {
+  return (
+    <div class="group relative flex items-center gap-4 px-5 py-4 rounded-[var(--radius-sm)] bg-[var(--color-surface-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface)] hover:shadow-lg transition-all duration-300 cursor-default">
+      <div class="w-10 h-10 flex items-center justify-center shrink-0 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] group-hover:scale-110 group-hover:shadow-sm transition-all duration-300 overflow-hidden">
+        <img
+          src={getIconUrl(skill, isDark.value)}
+          alt={skill.name}
+          class="w-7 h-7 object-contain opacity-90 group-hover:opacity-100 transition-all duration-300"
+          onError={(e: string | Event) => {
+            if (typeof e !== "string") {
+              (e.target as HTMLImageElement).parentElement!.style.display =
+                "none";
+            }
+          }}
+        />
+      </div>
+      <span class="text-sm md:text-base font-medium text-[var(--color-on-surface-secondary)] group-hover:text-[var(--color-on-surface)] transition-colors duration-300">
+        {skill.name}
+      </span>
     </div>
-    <span class="text-sm md:text-base font-medium text-[var(--color-on-surface-secondary)] group-hover:text-[var(--color-on-surface)] transition-colors duration-300">
-      {skill.name}
-    </span>
-  </div>
-);
+  );
+};
 
 const CategorySection = ({
   category,
   isDark,
 }: {
   category: SkillCategoryData;
-  isDark: boolean;
+  isDark: Signal<boolean>;
 }) => (
   <div class="space-y-6">
     <div class="flex flex-col gap-1 border-b border-[var(--color-border)] pb-4">
@@ -85,11 +86,9 @@ export const TechPage = define({
       return () => {};
     });
 
-    return {
-      isDark: themeStore.isDark,
-    };
+    return {};
   },
-  template: ({ isDark }) => (
+  template: () => (
     <div class="w-full">
       <section class="max-w-5xl mx-auto px-4 py-8 md:py-16" data-animate="hero">
         <div class="mb-14 text-center md:text-left">
@@ -105,7 +104,7 @@ export const TechPage = define({
 
         <div class="space-y-10 md:space-y-12">
           {SKILLS_DATA.map((category) => (
-            <CategorySection category={category} isDark={isDark.value} />
+            <CategorySection category={category} isDark={themeStore.isDark} />
           ))}
         </div>
       </section>

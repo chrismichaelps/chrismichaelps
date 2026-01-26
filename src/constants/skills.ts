@@ -28,7 +28,12 @@ export const SKILLS_DATA: readonly SkillCategoryData[] = [
     title: "Frontend",
     items: [
       { name: "React.js", iconName: "react" },
-      { name: "Next.js", iconName: "nextjs", shouldInvert: true, hasPlainVariant: true },
+      {
+        name: "Next.js",
+        iconName: "nextjs",
+        invertStrategy: "light",
+        hasPlainVariant: true,
+      },
       { name: "React Native", iconName: "react" },
       { name: "Vue.js", iconName: "vuejs", hasPlainVariant: true },
       { name: "Redux", iconName: "redux" },
@@ -40,7 +45,11 @@ export const SKILLS_DATA: readonly SkillCategoryData[] = [
     title: "Backend",
     items: [
       { name: "Node.js", iconName: "nodejs", hasPlainVariant: true },
-      { name: "Express.js", iconName: "express", shouldInvert: true },
+      {
+        name: "Express.js",
+        iconName: "express",
+        invertStrategy: "light",
+      },
       { name: "Spring Boot", iconName: "spring" },
     ],
   },
@@ -50,23 +59,40 @@ export const SKILLS_DATA: readonly SkillCategoryData[] = [
       { name: "MySQL", iconName: "mysql" },
       { name: "MongoDB", iconName: "mongodb", hasPlainVariant: true },
       { name: "PostgreSQL", iconName: "postgresql", hasPlainVariant: true },
-      { name: "Prisma", iconName: "prisma", shouldInvert: true },
+      {
+        name: "Prisma",
+        iconName: "prisma",
+        invertStrategy: "dark",
+      },
     ],
   },
   {
     title: "DevOps & Tools",
     items: [
       { name: "Git", iconName: "git", hasPlainVariant: true },
-      { name: "Vercel", iconName: "vercel", shouldInvert: true },
+      {
+        name: "Vercel",
+        iconName: "vercel",
+        invertStrategy: "light",
+      },
       { name: "AWS", iconName: "amazonwebservices-original-wordmark.svg" },
       { name: "Postman", iconName: "postman", hasPlainVariant: true },
-      { name: "Electron", iconName: "electron", shouldInvert: true },
+      {
+        name: "Electron",
+        iconName: "electron",
+        invertStrategy: "dark",
+      },
     ],
   },
   {
     title: "Testing",
     items: [
-      { name: "Vitest", iconName: "vitest", hasPlainVariant: true },
+      {
+        name: "Vitest",
+        iconName: "vitest",
+        hasPlainVariant: true,
+        invertStrategy: "dark",
+      },
       { name: "Jest", iconName: "jest-plain.svg" },
       { name: "JUnit", iconName: "junit", hasPlainVariant: true },
     ],
@@ -74,8 +100,16 @@ export const SKILLS_DATA: readonly SkillCategoryData[] = [
   {
     title: "3D & Visualization",
     items: [
-      { name: "Three.js", iconName: "threejs", shouldInvert: true },
-      { name: "WebGL", iconName: "webgl-original.svg" },
+      {
+        name: "Three.js",
+        iconName: "threejs",
+        invertStrategy: "light",
+      },
+      {
+        name: "WebGL",
+        iconName: "webgl-original.svg",
+        invertStrategy: "light",
+      },
     ],
   },
   {
