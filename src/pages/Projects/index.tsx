@@ -6,6 +6,23 @@ import { PROJECT_LINKS } from "../../constants";
 
 const projects: Project[] = [
   {
+    key: "tagix",
+    title: "Tagix",
+    description:
+      "Tagix is a strictly typed state management library powered by Tagged Unions, Inferred Actions, and exhaustive Pattern Matching. It provides a robust type-safe approach to managing application state with zero-boilerplate patterns.",
+    link: PROJECT_LINKS.TAGIX,
+    logo: "/icons/tagix-logo.svg",
+  },
+  {
+    key: "tagix-docs",
+    title: "Tagix Docs",
+    description:
+      "Official documentation for the Tagix state management library.",
+    link: PROJECT_LINKS.TAGIX_DOCS,
+    logo: "/icons/tagix-logo.svg",
+  },
+  {
+    key: "effuse",
     title: "Effuse",
     description:
       "Effuse is a personal exploration into building a modern reactive framework. It prioritizes simplicity and fine-grained reactivity using Signals, offering a familiar developer experience without the complexity of a virtual DOM.\n\nIt's designed to be intuitive and minimalist, helping you build fast, interactive web applications with less boilerplate. While it borrows good ideas from the ecosystem, it aims to remain small and understandable.",
@@ -13,6 +30,7 @@ const projects: Project[] = [
     logo: "/icons/effuse-logo.svg",
   },
   {
+    key: "effuse-docs",
     title: "Effuse Docs",
     description: "Official documentation for the Effuse framework.",
     link: PROJECT_LINKS.EFFUSE_DOCS,
@@ -64,9 +82,12 @@ export const ProjectsPage = define({
                     <div class="relative w-8 h-8">
                       <img
                         src={
-                          isDark.value
-                            ? "/icons/effuse-logo-white.svg"
-                            : "/icons/effuse-logo.svg"
+                          project.value.key === "effuse" ||
+                          project.value.key === "effuse-docs"
+                            ? isDark.value
+                              ? "/icons/effuse-logo-white.svg"
+                              : "/icons/effuse-logo.svg"
+                            : project.value.logo
                         }
                         alt={`${project.value.title} Logo`}
                         class="absolute inset-0 w-full h-full object-contain"
