@@ -10,6 +10,7 @@ export interface SocialLink {
 }
 
 export interface Project {
+  key: string;
   title: string;
   description: string;
   link: string;
