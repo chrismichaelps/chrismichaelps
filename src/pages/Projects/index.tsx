@@ -11,7 +11,7 @@ const projects: Project[] = [
     description:
       "Tagix is a strictly typed state management library powered by Tagged Unions, Inferred Actions, and exhaustive Pattern Matching. It provides a robust type-safe approach to managing application state with zero-boilerplate patterns.",
     link: PROJECT_LINKS.TAGIX,
-    logo: "/tagix-logo.svg",
+    logo: "/icons/tagix-logo.svg",
   },
   {
     key: "tagix-docs",
@@ -19,7 +19,7 @@ const projects: Project[] = [
     description:
       "Official documentation for the Tagix state management library.",
     link: PROJECT_LINKS.TAGIX_DOCS,
-    logo: "/tagix-logo.svg",
+    logo: "/icons/tagix-logo.svg",
   },
   {
     key: "effuse",
