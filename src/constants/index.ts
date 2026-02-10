@@ -13,7 +13,7 @@ export const PROJECT_LINKS = {
   EFFUSE_DOCS: 'https://effuse-doc.vercel.app',
   FASTA_TO_FST: 'https://github.com/chrismichaelps/fasta-to-fst',
   TAGIX: 'https://github.com/chrismichaelps/tagix',
-  TAGIX_DOCS: 'https://tagix-doc.vercel.app',
+  TAGIX_DOCS: 'https://tagix-docs.vercel.app',
 } as const;
 
 export const ICON_SIZES = {
