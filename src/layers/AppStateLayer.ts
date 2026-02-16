@@ -1,9 +1,9 @@
-import { defineLayer } from '@effuse/core';
-import { appStore } from '../store/appStore';
-import { logger } from '../utils/logger';
+import { defineLayer } from "@effuse/core";
+import { appStore } from "../store/appStore";
+import { logger } from "../utils/logger";
 
 export const AppStateLayer = defineLayer({
-  name: 'appState',
+  name: "appState",
   provides: {
     appStore: () => appStore,
   },
@@ -13,7 +13,7 @@ export const AppStateLayer = defineLayer({
     }, 1000);
 
     return () => {
-      logger.info('AppStateLayer cleanup', { tag: 'AppStateLayer' });
+      logger.info("AppStateLayer cleanup", { tag: "AppStateLayer" });
     };
   },
 });

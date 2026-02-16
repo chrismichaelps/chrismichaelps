@@ -1,21 +1,24 @@
-import { Signal, ReadonlySignal } from '@effuse/core';
+import { Signal, ReadonlySignal } from "@effuse/core";
 
 type BreakpointMobile = {
-  readonly _tag: 'Mobile';
+  readonly _tag: "Mobile";
   readonly width: number;
 };
 
 type BreakpointTablet = {
-  readonly _tag: 'Tablet';
+  readonly _tag: "Tablet";
   readonly width: number;
 };
 
 type BreakpointDesktop = {
-  readonly _tag: 'Desktop';
+  readonly _tag: "Desktop";
   readonly width: number;
 };
 
-export type BreakpointState = BreakpointMobile | BreakpointTablet | BreakpointDesktop;
+export type BreakpointState =
+  | BreakpointMobile
+  | BreakpointTablet
+  | BreakpointDesktop;
 
 export interface BreakpointConfig {
   readonly mobile?: number;

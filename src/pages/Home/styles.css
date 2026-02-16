@@ -2,14 +2,16 @@
 .section-title,
 .content-card,
 .list-item {
-	opacity: 1;
+  opacity: 1;
 }
 
 .content-card {
-	transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out;
 }
 
 .content-card:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 4px 20px rgba(74, 246, 38, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(74, 246, 38, 0.1);
 }

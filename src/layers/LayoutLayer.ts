@@ -1,13 +1,12 @@
-import { defineLayer } from '@effuse/core';
-import { useBreakpoint } from '../hooks/useBreakpoint';
+import { defineLayer } from "@effuse/core";
+import { useBreakpoint } from "../hooks/useBreakpoint";
 
 export const LayoutLayer = defineLayer({
-  name: 'layout',
+  name: "layout",
   provides: {
     useBreakpoint: () => useBreakpoint,
   },
   setup: () => {
-    return () => {
-    };
+    return () => {};
   },
 });

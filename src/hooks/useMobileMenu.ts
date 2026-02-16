@@ -1,19 +1,19 @@
-import { defineHook } from '@effuse/core';
-import { UseMobileMenuReturn } from '../types';
+import { defineHook } from "@effuse/core";
+import { UseMobileMenuReturn } from "../types";
 
 export const useMobileMenu = defineHook<{}, UseMobileMenuReturn>({
-  name: 'useMobileMenu',
+  name: "useMobileMenu",
   setup: ({ signal }) => {
     const isOpen = signal(false);
 
     const updateMenuVisibility = (open: boolean) => {
       isOpen.value = open;
-      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenu = document.getElementById("mobile-menu");
       if (mobileMenu) {
         if (open) {
-          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.remove("hidden");
         } else {
-          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.add("hidden");
         }
       }
     };

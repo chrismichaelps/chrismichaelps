@@ -1,44 +1,44 @@
 // Gist: https://gist.github.com/chrismichaelps/c0a8b3ea083ad2e01357f4f2990bba9a
 
-import { dual } from './functions';
+import { dual } from "./functions";
 
-const TypeId = Symbol.for('Option');
+const TypeId = Symbol.for("Option");
 type TypeId = typeof TypeId;
 
 export interface None {
-  readonly _tag: 'None';
+  readonly _tag: "None";
   readonly [TypeId]: TypeId;
 }
 
 export interface Some<A> {
-  readonly _tag: 'Some';
+  readonly _tag: "Some";
   readonly value: A;
   readonly [TypeId]: TypeId;
 }
 
 export type Option<A> = None | Some<A>;
 
-const noneInstance: None = { _tag: 'None', [TypeId]: TypeId };
+const noneInstance: None = { _tag: "None", [TypeId]: TypeId };
 
 export const none = <A>(): Option<A> => noneInstance;
 
 export const some = <A>(value: A): Option<A> => ({
-  _tag: 'Some',
+  _tag: "Some",
   value,
   [TypeId]: TypeId,
 });
 
 export const isOption = (u: unknown): u is Option<unknown> =>
-  typeof u === 'object' && u !== null && TypeId in u;
+  typeof u === "object" && u !== null && TypeId in u;
 
 export const isNone = <A>(option: Option<A>): option is None =>
-  option._tag === 'None';
+  option._tag === "None";
 
 export const isSome = <A>(option: Option<A>): option is Some<A> =>
-  option._tag === 'Some';
+  option._tag === "Some";
 
 export const fromNullable = <A>(
-  value: A | null | undefined
+  value: A | null | undefined,
 ): Option<NonNullable<A>> =>
   value == null ? none() : some(value as NonNullable<A>);
 
@@ -65,10 +65,10 @@ export const match = dual<
   }) => (option: Option<A>) => B | C,
   <A, B, C>(
     option: Option<A>,
-    cases: { readonly onNone: () => B; readonly onSome: (a: A) => C }
+    cases: { readonly onNone: () => B; readonly onSome: (a: A) => C },
   ) => B | C
 >(2, (option, cases) =>
-  isNone(option) ? cases.onNone() : cases.onSome(option.value)
+  isNone(option) ? cases.onNone() : cases.onSome(option.value),
 );
 
 export const map = dual<
@@ -85,7 +85,7 @@ export const filter = dual<
   <A>(predicate: (a: A) => boolean) => (option: Option<A>) => Option<A>,
   <A>(option: Option<A>, predicate: (a: A) => boolean) => Option<A>
 >(2, (option, predicate) =>
-  isNone(option) ? none() : predicate(option.value) ? option : none()
+  isNone(option) ? none() : predicate(option.value) ? option : none(),
 );
 
 export const tap = dual<

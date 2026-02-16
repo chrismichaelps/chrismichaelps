@@ -12,7 +12,11 @@ export const Footer = define({
         <p>MIT {year} © Chris M. Pérez</p>
         <div class="flex items-center gap-2 text-xs">
           <img
-            src={isDark.value ? "/icons/effuse-logo-white.svg" : "/icons/effuse-logo.svg"}
+            src={
+              isDark.value
+                ? "/icons/effuse-logo-white.svg"
+                : "/icons/effuse-logo.svg"
+            }
             alt="Effuse Logo"
             class="h-4 w-4"
           />
