@@ -115,8 +115,6 @@ export const SKILLS_DATA: readonly SkillCategoryData[] = [
   {
     title: "Personal Favorites",
     description: "— Languages I enjoy exploring",
-    items: [
-      { name: "Haskell", iconName: "haskell", hasPlainVariant: true },
-    ],
+    items: [{ name: "Haskell", iconName: "haskell", hasPlainVariant: true }],
   },
 ] as const;

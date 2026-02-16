@@ -1,11 +1,11 @@
-import { createStore } from '@effuse/store';
-import { taggedEnum } from '../lib/data/tagged-enum';
-import { AppState, AppStoreState, AppStoreActions } from '../types';
+import { createStore } from "@effuse/store";
+import { taggedEnum } from "../lib/data/tagged-enum";
+import { AppState, AppStoreState, AppStoreActions } from "../types";
 
 const State = taggedEnum<AppState>();
 
 export const appStore = createStore<AppStoreActions & AppStoreState>(
-  'app',
+  "app",
   {
     appState: State.Loading({}),
     isLoading: true,
@@ -28,7 +28,7 @@ export const appStore = createStore<AppStoreActions & AppStoreState>(
       });
     },
   },
-  { devtools: true }
+  { devtools: true },
 );
 
 export type { AppState };

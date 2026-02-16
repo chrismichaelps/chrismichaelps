@@ -1,8 +1,8 @@
 // Gist: https://gist.github.com/chrismichaelps/c0a8b3ea083ad2e01357f4f2990bba9a
 
-import { isRecord, isString, isNotNullish } from './predicate';
+import { isRecord, isString, isNotNullish } from "./predicate";
 
-const plainArgsSymbol = Symbol.for('plainArgs');
+const plainArgsSymbol = Symbol.for("plainArgs");
 
 type ErrorArgs = Record<string, unknown>;
 
@@ -51,20 +51,20 @@ class TaggedErrorBase<Tag extends string> extends Error {
 }
 
 export function TaggedError<Tag extends string>(
-  tag: Tag
+  tag: Tag,
 ): new <A extends ErrorArgs = Record<string, never>>(
-  args: A
+  args: A,
 ) => TaggedError<Tag> & Readonly<A> {
   return class extends TaggedErrorBase<Tag> {
     constructor(args: ErrorArgs) {
       super(tag, args);
     }
   } as new <A extends ErrorArgs = Record<string, never>>(
-    args: A
+    args: A,
   ) => TaggedError<Tag> & Readonly<A>;
 }
 
 export const isTaggedError = (
-  u: unknown
+  u: unknown,
 ): u is { readonly _tag: string } & Error =>
-  isRecord(u) && '_tag' in u && isString(u._tag) && u instanceof Error;
+  isRecord(u) && "_tag" in u && isString(u._tag) && u instanceof Error;

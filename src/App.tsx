@@ -10,14 +10,16 @@ export const App = define({
     return {};
   },
   template: ({}) => (
-    <Suspense fallback={
-      <div class="flex items-center justify-center h-screen">
-        <div class="text-center">
-          <div class="animate-pulse text-2xl text-white mb-4">Loading...</div>
-          <div class="text-gray-400">Setting up the developer profile</div>
+    <Suspense
+      fallback={
+        <div class="flex items-center justify-center h-screen">
+          <div class="text-center">
+            <div class="animate-pulse text-2xl text-white mb-4">Loading...</div>
+            <div class="text-gray-400">Setting up the developer profile</div>
+          </div>
         </div>
-      </div>
-    }>
+      }
+    >
       <AppLayout>
         <SmoothScroll />
         <Header />

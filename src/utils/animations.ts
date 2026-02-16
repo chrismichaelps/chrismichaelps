@@ -5,9 +5,13 @@ const expoOut = "power4.out";
 
 export function animateFadeInUp(
   elements: Element | Element[] | NodeListOf<Element>,
-  options: { delay?: number; stagger?: number; duration?: number } = {}
+  options: { delay?: number; stagger?: number; duration?: number } = {},
 ) {
-  const { delay = ANIMATION_DEFAULTS.DELAY, stagger = ANIMATION_DEFAULTS.STAGGER, duration = ANIMATION_DEFAULTS.DURATION } = options;
+  const {
+    delay = ANIMATION_DEFAULTS.DELAY,
+    stagger = ANIMATION_DEFAULTS.STAGGER,
+    duration = ANIMATION_DEFAULTS.DURATION,
+  } = options;
 
   gsap.fromTo(
     elements,
@@ -18,14 +22,14 @@ export function animateFadeInUp(
       duration,
       delay,
       stagger,
-      ease: expoOut
-    }
+      ease: expoOut,
+    },
   );
 }
 
 export function animateHeroText(
   element: Element,
-  options: { delay?: number } = {}
+  options: { delay?: number } = {},
 ) {
   const { delay = ANIMATION_DEFAULTS.HERO_DELAY } = options;
 
@@ -37,14 +41,14 @@ export function animateHeroText(
       y: 0,
       duration: 1.2,
       delay,
-      ease: expoOut
-    }
+      ease: expoOut,
+    },
   );
 }
 
 export function animateSection(
   element: Element,
-  options: { delay?: number } = {}
+  options: { delay?: number } = {},
 ) {
   const { delay = 0 } = options;
 
@@ -56,15 +60,15 @@ export function animateSection(
       y: 0,
       duration: 0.8,
       delay,
-      ease: expoOut
-    }
+      ease: expoOut,
+    },
   );
 }
 
 export function animateListItems(
   container: Element,
   itemSelector: string,
-  options: { delay?: number; stagger?: number } = {}
+  options: { delay?: number; stagger?: number } = {},
 ) {
   const { delay = 0, stagger = 0.08 } = options;
   const items = container.querySelectorAll(itemSelector);
@@ -78,8 +82,8 @@ export function animateListItems(
       duration: 0.6,
       delay,
       stagger,
-      ease: expoOut
-    }
+      ease: expoOut,
+    },
   );
 }
 
@@ -89,22 +93,30 @@ export function initPageAnimations() {
 
   const sections = document.querySelectorAll(ANIMATION_SELECTORS.SECTION);
   sections.forEach((section, i) => {
-    animateSection(section, { delay: ANIMATION_DEFAULTS.SECTION_DELAY_BASE + i * ANIMATION_DEFAULTS.SECTION_DELAY_STEP });
+    animateSection(section, {
+      delay:
+        ANIMATION_DEFAULTS.SECTION_DELAY_BASE +
+        i * ANIMATION_DEFAULTS.SECTION_DELAY_STEP,
+    });
   });
 
   const lists = document.querySelectorAll(ANIMATION_SELECTORS.LIST);
   lists.forEach((list, i) => {
-    animateListItems(list, ANIMATION_SELECTORS.ITEM, { delay: ANIMATION_DEFAULTS.LIST_DELAY_BASE + i * ANIMATION_DEFAULTS.LIST_DELAY_STEP });
+    animateListItems(list, ANIMATION_SELECTORS.ITEM, {
+      delay:
+        ANIMATION_DEFAULTS.LIST_DELAY_BASE +
+        i * ANIMATION_DEFAULTS.LIST_DELAY_STEP,
+    });
   });
 }
 
 export function animateThemeTransition(
   onMidpoint: () => void,
-  options: { duration?: number } = {}
+  options: { duration?: number } = {},
 ): void {
   const { duration = 0.3 } = options;
 
-  const overlay = document.createElement('div');
+  const overlay = document.createElement("div");
   overlay.style.cssText = `
     position: fixed;
     inset: 0;
@@ -115,11 +127,12 @@ export function animateThemeTransition(
   `;
   document.body.appendChild(overlay);
 
-  gsap.timeline()
+  gsap
+    .timeline()
     .to(overlay, {
       opacity: 0.08,
       duration: duration / 2,
-      ease: 'power2.in',
+      ease: "power2.in",
     })
     .call(() => {
       onMidpoint();
@@ -127,10 +140,9 @@ export function animateThemeTransition(
     .to(overlay, {
       opacity: 0,
       duration: duration / 2,
-      ease: 'power2.out',
+      ease: "power2.out",
       onComplete: () => {
         overlay.remove();
       },
     });
 }
-

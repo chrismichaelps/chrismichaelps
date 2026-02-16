@@ -58,7 +58,7 @@ export const ResearchPage = define({
               >
                 Fast-to-FST: Efficient Conversion of FastA to FST Format
               </a>
-             </p>
+            </p>
 
             <div class="space-y-3">
               <h4 class="text-sm font-medium text-gray-400 uppercase tracking-wide">

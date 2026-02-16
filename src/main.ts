@@ -1,11 +1,11 @@
-import { createApp } from '@effuse/core';
-import { App } from './App';
-import { RouterLayer, LayoutLayer, AppStateLayer } from './layers';
-import { themeStore } from './store';
-import { logger } from './utils/logger';
-import './styles.css';
+import { createApp } from "@effuse/core";
+import { App } from "./App";
+import { RouterLayer, LayoutLayer, AppStateLayer } from "./layers";
+import { themeStore } from "./store";
+import { logger } from "./utils/logger";
+import "./styles.css";
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   themeStore.initTheme();
 }
 
@@ -13,10 +13,10 @@ createApp(App)
   .useLayers([LayoutLayer, AppStateLayer, RouterLayer])
   .then((app) => {
     app
-      .mount('#app', {
+      .mount("#app", {
         tracing: {
           enabled: import.meta.env.DEV,
-          serviceName: 'chrismichaelps',
+          serviceName: "chrismichaelps",
           console: true,
           verbose: false,
           categories: {
@@ -33,6 +33,6 @@ createApp(App)
           },
         },
       })
-      .then(() => logger.info('App mounted', { tag: 'App' }))
-      .catch((err) => logger.error(err, { tag: 'App' }));
+      .then(() => logger.info("App mounted", { tag: "App" }))
+      .catch((err) => logger.error(err, { tag: "App" }));
   });

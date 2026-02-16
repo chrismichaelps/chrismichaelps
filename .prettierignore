@@ -1,0 +1,6 @@
+dist
+coverage
+node_modules
+.content
+public
+.DS_Store

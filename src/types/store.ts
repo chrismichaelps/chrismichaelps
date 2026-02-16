@@ -1,5 +1,5 @@
-type ThemeLight = { readonly _tag: 'Light' };
-type ThemeDark = { readonly _tag: 'Dark' };
+type ThemeLight = { readonly _tag: "Light" };
+type ThemeDark = { readonly _tag: "Dark" };
 export type ThemeState = ThemeLight | ThemeDark;
 
 export interface ThemeStoreState {
@@ -13,9 +13,9 @@ export interface ThemeStoreActions {
   initTheme: () => void;
 }
 
-type AppLoading = { readonly _tag: 'Loading' };
-type AppReady = { readonly _tag: 'Ready' };
-type AppError = { readonly _tag: 'Error'; readonly message: string };
+type AppLoading = { readonly _tag: "Loading" };
+type AppReady = { readonly _tag: "Ready" };
+type AppError = { readonly _tag: "Error"; readonly message: string };
 export type AppState = AppLoading | AppReady | AppError;
 
 export interface AppStoreState {

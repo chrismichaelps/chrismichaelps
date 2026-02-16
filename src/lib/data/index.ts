@@ -1,8 +1,8 @@
-export * from './tagged-error';
-export * from './tagged-enum';
-export * from './predicate';
-export * from './option';
-export * from './functions';
+export * from "./tagged-error";
+export * from "./tagged-enum";
+export * from "./predicate";
+export * from "./option";
+export * from "./functions";
 export {
   left,
   right,
@@ -27,12 +27,7 @@ export {
   resultGetOrElse,
   resultMap,
   resultMapError,
-  resultFlatMap
-} from './either';
+  resultFlatMap,
+} from "./either";
 
-export type {
-  Either,
-  Left,
-  Right,
-  Result
-} from './either';
+export type { Either, Left, Right, Result } from "./either";
