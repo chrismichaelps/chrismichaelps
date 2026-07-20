@@ -1,1 +1,4 @@
-Software Developer @ Creator of Effuse
+Software Developer @ ❤️ Haskell
+
+> [!IMPORTANT]
+> **Open to Work:** I’m currently seeking new Software Engineering opportunities.  
