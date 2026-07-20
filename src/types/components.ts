@@ -14,7 +14,7 @@ export interface Project {
   title: string;
   description: string;
   link: string;
-  logo: string;
+  logo?: string;
 }
 
 export interface AppLayoutProps {

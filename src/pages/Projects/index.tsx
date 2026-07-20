@@ -6,6 +6,13 @@ import { PROJECT_LINKS } from "../../constants";
 
 const projects: Project[] = [
   {
+    key: "acp",
+    title: "Agent Coordination Protocol (ACP)",
+    description: "Coordination layer for autonomous coding agents sharing a repo — durable workspace state, leases, checkpoints, and review gates. TypeScript reference implementation, Docker-ready.",
+    link: PROJECT_LINKS.ACP,
+    logo: "/icons/no-logo.svg",
+  },
+  {
     key: "tagix",
     title: "Tagix",
     description:
@@ -49,7 +56,7 @@ export const ProjectsPage = define({
       requestAnimationFrame(() => {
         initPageAnimations();
       });
-      return () => {};
+      return () => { };
     });
 
     return {
@@ -83,11 +90,15 @@ export const ProjectsPage = define({
                       <img
                         src={
                           project.value.key === "effuse" ||
-                          project.value.key === "effuse-docs"
+                            project.value.key === "effuse-docs"
                             ? isDark.value
                               ? "/icons/effuse-logo-white.svg"
                               : "/icons/effuse-logo.svg"
-                            : project.value.logo
+                            : !project.value.logo || project.value.logo === "/icons/no-logo.svg"
+                              ? (isDark.value
+                                ? "/icons/no-logo-white.svg"
+                                : "/icons/no-logo.svg")
+                              : project.value.logo
                         }
                         alt={`${project.value.title} Logo`}
                         class="absolute inset-0 w-full h-full object-contain"

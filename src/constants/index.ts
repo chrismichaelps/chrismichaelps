@@ -5,7 +5,7 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const DOCUMENTS = {
-  RESUME: "/Chris_Resume___2026_Jan.pdf",
+  RESUME: "/Chris_Resume_Apr_2026.pdf",
 } as const;
 
 export const PROJECT_LINKS = {
@@ -14,6 +14,7 @@ export const PROJECT_LINKS = {
   FASTA_TO_FST: "https://github.com/chrismichaelps/fasta-to-fst",
   TAGIX: "https://github.com/chrismichaelps/tagix",
   TAGIX_DOCS: "https://tagix-docs.vercel.app",
+  ACP: "https://github.com/chrismichaelps/acp",
 } as const;
 
 export const ICON_SIZES = {
