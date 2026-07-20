@@ -5,7 +5,7 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const DOCUMENTS = {
-  RESUME: "/Chris_Resume___2026_Jan.pdf",
+  RESUME: "/Chris_Resume_Apr_2026.pdf",
 } as const;
 
 export const PROJECT_LINKS = {
